@@ -50,7 +50,10 @@ const LoadingSkeleton: FC<LoadingSkeletonProps> = ({ username }) => {
         <h3 className="my-2 text-xl font-bold">Public Repos</h3>
         <ul className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
           {Array.from({ length: 3 }).map((_, index) => (
-            <div className="w-full bg-sky-500/5  min-h-[150px] p-1 border  rounded-md">
+            <div
+              key={index}
+              className="w-full bg-sky-500/5  min-h-[150px] p-1 border  rounded-md"
+            >
               <Skeleton className="  bg-sky-600/50 w-48 h-3.5 mt-2" />
               <Skeleton className="bg-zinc-200  w-28 h-3.5 mt-2" />
 
