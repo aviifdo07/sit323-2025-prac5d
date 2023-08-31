@@ -33,6 +33,10 @@
 
 - **View Repository Programming Languages**: For each repository displayed, GetGit provides information about the programming languages used in the repository's codebase.
 
+- **Save Theme Preferences**: Customize your experience by selecting a theme, and GetGit will remember your choice for future visits.
+
+- **Save Last Searched Username**: GetGit remembers the last username you searched for, making it convenient to resume your research later.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
