@@ -21,6 +21,18 @@
 - [Tailwind CSS Animate](https://www.npmjs.com/package/tailwindcss-animate) v1.0.6: An animation plugin for Tailwind CSS.
 - [TypeScript](https://www.npmjs.com/package/typescript) v5.2.2: A superset of JavaScript with static types.
 
+## Features
+
+- **Change Page Theme**: Customize the page's appearance using different themes and color schemes.
+
+- **Find User Details**: Easily search and retrieve user details by entering their username. GetGit will fetch relevant information to display.
+
+- **Open Repositories**: Browse and access a list of repositories owned by the specified user. Click on any repository to view more details.
+
+- **Go to the Website**: Launch the official website of the project directly from the application, keeping you connected with the latest updates.
+
+- **View Repository Programming Languages**: For each repository displayed, GetGit provides information about the programming languages used in the repository's codebase.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
