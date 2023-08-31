@@ -1,4 +1,4 @@
-# [GetGit](https://getgit.vercel.app)
+# <a href="https://getgit.vercel.app" target="_blank" rel="noopener noreferrer">GetGit</a>
 
 ## Technologies Used
 
