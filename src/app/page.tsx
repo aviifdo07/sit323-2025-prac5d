@@ -32,7 +32,7 @@ export default function Home() {
     mutate: fetchData,
     isError,
   } = useMutation({
-    mutationKey: ["username"],
+    mutationKey: ["repoData"],
     mutationFn: async () => {
       const { data } = await axios.get(
         `https://api.github.com/users/${username}`
@@ -60,7 +60,7 @@ export default function Home() {
   };
 
   return (
-    <main className="container mx-auto my-2 ">
+    <main className="container mx-auto mt-2 mb-20">
       <form
         onSubmit={handleSubmit}
         className="gap-2 p-2 space-y-2 border-2 border-green-500 md:flex md:items-end"
@@ -83,7 +83,7 @@ export default function Home() {
         <Button
           disabled={isLoading || username.length < 3}
           type="submit"
-          className="w-full transition md:w-24"
+          className="w-full font-bold transition md:w-24"
         >
           {isLoading ? (
             <Loader2 className="w-4 h-4 mr-2 animate-spin" />

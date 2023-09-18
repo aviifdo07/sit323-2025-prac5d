@@ -3,6 +3,7 @@ import axios from "axios";
 import { FC } from "react";
 import colors from "@/color.json";
 import { ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface RepoDetailsProps {
   repo: Repository;
@@ -24,7 +25,12 @@ const RepoDetails: FC<RepoDetailsProps> = ({ repo }) => {
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   }
   return (
-    <div className="w-full bg-sky-500/5 min-h-[150px] p-1 border border-sky-500/50 rounded-md">
+    <motion.div
+      initial={{ opacity: 0.3, y: 20, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ margin: "0px 0px -20% 0px" }}
+      className="w-full bg-zinc-50 dark:bg-neutral-800 min-h-[150px] border-2 p-2 origin-top dark:border-none border-sky-500/50 shadow-md rounded-md"
+    >
       <a
         href={repo.html_url}
         className="table text-lg font-semibold text-sky-600 dark:text-sky-400"
@@ -61,7 +67,7 @@ const RepoDetails: FC<RepoDetailsProps> = ({ repo }) => {
           })}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

@@ -105,7 +105,7 @@ const DisplayData: FC<DisplayDataProps> = ({ userData }) => {
         <h3 className="my-2 text-xl font-bold">
           {(reposData?.length ?? 0) === 0 && "No "}Public Repos
         </h3>
-        <ul className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
+        <ul className="grid w-full grid-cols-1 gap-2 md:grid-cols-2 grid-rows-[masonry]">
           {Array.isArray(reposData) &&
             reposData
               .map((repo, index) => {

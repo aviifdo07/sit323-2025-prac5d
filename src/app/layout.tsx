@@ -21,7 +21,7 @@ export default function RootLayout({
       <body
         className={
           (inter.className,
-          "bg-zinc-50 dark:bg-slate-700 transition-colors duration-300")
+          "bg-zinc-50 dark:bg-neutral-900 transition-colors duration-300")
         }
       >
         <Providers>
