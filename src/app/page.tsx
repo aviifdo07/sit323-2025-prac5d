@@ -1,24 +1,29 @@
 "use client";
-import { useMutation } from "@tanstack/react-query";
-import { FormEvent, useRef, useState } from "react";
-import axios, { AxiosError } from "axios";
 import DisplayData from "@/components/displayData";
-import { Button } from "@/components/ui/button";
-import { Frown, Loader2 } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import LoadingSkeleton from "@/components/loadingSkeleton";
-import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useMutation } from "@tanstack/react-query";
+import axios, { AxiosError } from "axios";
+import { Frown, Loader2 } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 export default function Home() {
+  const router = useRouter();
+  const params = useSearchParams();
   const [username, setUsername] = useState("");
   const [fetcherror, setFetchError] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (localStorage.getItem("username")) {
+    if (params.get("username")) {
+      setUsername(params.get("username") as string);
+    } else if (localStorage.getItem("username")) {
       setUsername(localStorage.getItem("username") as string);
     } else {
       setUsername("vercel");
+      router.push(`?username=${username}`);
     }
     setTimeout(() => {
       fetchData();
@@ -46,6 +51,9 @@ export default function Home() {
         if (err.response?.status === 404) {
           return setFetchError("User Not found");
         }
+        if (err.response?.status === 403) {
+          return setFetchError("Time out, try again later");
+        }
         setFetchError(err.message);
       }
     },
@@ -56,6 +64,7 @@ export default function Home() {
     if (username.startsWith("@")) {
       setUsername(username.substring(1));
     }
+    router.push(`?username=${username}`);
     fetchData();
   };
 
@@ -80,9 +89,10 @@ export default function Home() {
             onFocus={() => inputRef.current?.select()}
           />
         </div>
+
         <Button
           disabled={isLoading || username.length < 3}
-          type="submit"
+          // type="submit"
           className="w-full font-bold transition md:w-24"
         >
           {isLoading ? (
@@ -99,7 +109,7 @@ export default function Home() {
           <p className="font-bold text-center text-red-600">
             Someting went wrong: {fetcherror}
           </p>
-          <Frown className="w-24 h-24 mx-auto text-red-600/10 " />
+          <Frown className="w-24 h-24 mx-auto text-red-600/10 dark:text-red-600 " />
         </>
       )}
     </main>
