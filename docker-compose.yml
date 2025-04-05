@@ -1,0 +1,12 @@
+version: '3.8'  # Use a version of Docker Compose file format
+
+services:
+  nodeapp:
+    build: .  # Location of the Dockerfile (current directory in this case)
+    ports:
+      - "3000:3000"  # Map port 3000 of the container to port 3000 on the host
+    volumes:
+      - .:/app  # Mount the current directory to /app in the container
+      - /app/node_modules  # Use a named volume for node_modules to avoid overwriting the node_modules from the host
+    environment:
+      - NODE_ENV=development  # Set environment variables, if needed
